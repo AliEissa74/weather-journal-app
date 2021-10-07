@@ -14,18 +14,6 @@ body {
   font-family: "Oswald", sans-serif;
 }
 
-#error {
-  background-color: #c5242c;
-  color: white;
-  font-size: large;
-  width: 15%;
-  text-align: center;
-  margin: 0px 57px 12px;
-  border-radius: 1px 0px 30px 30px;
-  display: block;
-  position:fixed;
-}
-
 .entry {
   width: 100%;
   background: #07133340;
@@ -45,7 +33,11 @@ body {
   font-size: 1.2vw;
 }
 
-#temp,#city {
+#temp {
+  font-size: 4vw;
+}
+
+#city{
   font-size: 4vw;
 }
 
@@ -56,7 +48,7 @@ body {
   width: 20%;
   margin-top: 5px;
   background: #0a113a;
-  cursor: pointer;
+  cursor:pointer;
 }
 
 .headline {

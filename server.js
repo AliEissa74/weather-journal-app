@@ -26,28 +26,26 @@ app.use(cors());
 app.use(express.static("website"));
 
 // Callback function to complete GET '/all'
-const getAll = function (req, res) {
+const getAllData = function (req, res) {
   res.send(projectData);
 };
-// GET Route
-app.get("/all", getAll);
+app.get("/all", getAllData);
 
 // Callback function to complete POST '/add'
-const postData = function (req, res) {
+const postAllData = function (req, res) {
   projectData = req.body;
   console.log(projectData);
-  res.send(projectData);
+  res.status(200).send(projectData);
 };
-// GET Route
-app.post("/add", postData);
+app.post("/add", postAllData);
 
 // Setup Server
+const hostName = "127.0.0.2";
 const port = 3000;
-const hostname = "127.0.0.1";
 
 // function to test the server
 const listening = function () {
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`running on http://${hostName}:${port}/`);
 };
 // Spin up the server
-const server=app.listen(port, listening);
+const server = app.listen(port, listening);
