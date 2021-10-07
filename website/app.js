@@ -53,9 +53,6 @@ const getWeather = async function (zipCode) {
   }
 };
 
-// Event listener to add function to existing HTML DOM element
-/* Function called by event listener */
-document.getElementById("generate").addEventListener("click", generateAllData);
 
 /* Function to POST data */
 const postAllData = async function (url = "", information = {}) {
@@ -88,3 +85,6 @@ const updateUi = async function () {
     console.log("error", error);
   }
 };
+// Event listener to add function to existing HTML DOM element
+/* Function called by event listener */
+document.getElementById("generate").addEventListener("click", generateAllData);
