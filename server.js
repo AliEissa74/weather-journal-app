@@ -39,13 +39,13 @@ const postAllData = function (req, res) {
 };
 app.post("/add", postAllData);
 
-// Setup Server
-const hostName = "127.0.0.2";
+// Server Setup
+const address = "127.0.0.2";
 const port = 3000;
 
 // function to test the server
 const listening = function () {
-  console.log(`running on http://${hostName}:${port}/`);
+  console.log(`running on http://${address}:${port}/`);
 };
 // Spin up the server
 const server = app.listen(port, listening);

@@ -15,11 +15,11 @@ const serverUrl = "http://127.0.0.2:3000";
 
 // generateAllData //
 const generateAllData = function () {
-  const zip = document.getElementById("zip").value;
+  const zipCode = document.getElementById("zip").value;
   const feelings = document.getElementById("feelings").value;
 
   // getWeather return promise
-  getWeather(zip).then(function (serverData) {
+  getWeather(zipCode).then(function (serverData) {
     if (serverData) {
       const {
         main: { temp },
@@ -53,7 +53,6 @@ const getWeather = async function (zipCode) {
   }
 };
 
-
 /* Function to POST data */
 const postAllData = async function (url = "", information = {}) {
   const res = await fetch(url, {
@@ -76,9 +75,9 @@ const updateUi = async function () {
   try {
     const reservedData = await res.json();
 
-    document.getElementById("date").innerHTML = reservedData.newDate;
     document.getElementById("temp").innerHTML = reservedData.temp + "&degC";
     document.getElementById("city").innerHTML = reservedData.city;
+    document.getElementById("date").innerHTML = reservedData.newDate;
     document.getElementById("content").innerHTML = reservedData.feelings;
     document.getElementById("description").innerHTML = reservedData.description;
   } catch (error) {
