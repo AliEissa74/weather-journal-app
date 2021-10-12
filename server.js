@@ -12,24 +12,20 @@ const bodyParser = require("body-parser");
 
 // parse application/urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// parse application/json
 app.use(bodyParser.json());
 
 // Cors for cross origin allowance
 const cors = require("cors");
-
-// Enable All CORS Requests
 app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static("website"));
 
 // Callback function to complete GET '/all'
-const getAllData = function (req, res) {
+const sendData = function (req, res) {
   res.send(projectData);
 };
-app.get("/all", getAllData);
+app.get("/all", sendData);
 
 // Callback function to complete POST '/add'
 const postAllData = function (req, res) {
@@ -40,12 +36,13 @@ const postAllData = function (req, res) {
 app.post("/add", postAllData);
 
 // Server Setup
-const address = "127.0.0.2";
+const address="127.0.0.2";
 const port = 3000;
 
 // function to test the server
-const listening = function () {
-  console.log(`running on http://${address}:${port}/`);
+function listening() {
+  console.log('Server running');
+  console.log(`running on http://${address}:${port}/`)
 };
 // Spin up the server
 const server = app.listen(port, listening);
